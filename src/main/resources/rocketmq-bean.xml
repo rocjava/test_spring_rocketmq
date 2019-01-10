@@ -12,7 +12,7 @@
         <property name="messageListener" ref="messageListeners" />
         <property name="subscription">
             <map>
-                <entry key="${rocketmq.topic}" value="${rocketmq.tags}" />
+                <entry key="LISTENING_SONGS" value="YUSHEN" />
             </map>
         </property>
     </bean>

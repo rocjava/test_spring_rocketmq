@@ -13,12 +13,10 @@ public class MessageListener implements MessageListenerConcurrently {
     final Logger logger = Logger.getLogger(MessageListener.class);
     @Override
     public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext consumeConcurrentlyContext) {
-        logger.info(Thread.currentThread().getName()
-                + " Receive New Messages: " + msgs.size()+";msg:" + msgs);
-
+        logger.info(Thread.currentThread().getName()+ "---->接收"+ msgs.size() +"条消息");
         for (MessageExt msg : msgs) {
             try {
-                System.out.println(">>>>"+new String(msg.getBody(),"UTF-8"));
+                logger.info(Thread.currentThread().getName()+ "---->消息:"+new String(msg.getBody(),"UTF-8"));
             } catch (UnsupportedEncodingException e) {
                 logger.error(e.toString());
             }
