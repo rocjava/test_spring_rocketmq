@@ -6,4 +6,5 @@ package com.penn.springrocketmq.Constant;
 public class Constants {
     public final static String MQ_TOPIC = "LISTENING_SONGS";
     public final static String MQ_TAG = "YUSHEN";
+    public final static String MQ_TAG_OTHER = "OTHER";
 }

@@ -32,7 +32,18 @@ public class RocketMqController {
         String str = "现在的时间是:"+ format.format(new Date());
         Message msg = new Message(Constants.MQ_TOPIC,Constants.MQ_TAG,str.getBytes());
         SendResult result = rocketMQProducer.getDefaultMQProducer().send(msg);
-        logger.info(Thread.currentThread().getName()+ "---->发送1条消息"+ result);
+        //logger.info(Thread.currentThread().getName()+ "---->发送1条消息"+ result);
+
+        return "index";
+    }
+
+    @RequestMapping("/sendMqOther")
+    public String sendMqOther() throws InterruptedException, RemotingException, MQClientException, MQBrokerException {
+        DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String str = "现在的时间是:"+ format.format(new Date());
+        Message msg = new Message(Constants.MQ_TOPIC,Constants.MQ_TAG_OTHER,str.getBytes());
+        SendResult result = rocketMQProducer.getDefaultMQProducer().send(msg);
+        //logger.info(Thread.currentThread().getName()+ "---->发送1条消息"+ result);
 
         return "index";
     }
